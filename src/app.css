@@ -7,6 +7,8 @@
 	color: rgba(255, 255, 255, 0.87);
 	background-color: #001c55;
 
+	--header-height: 4rem;
+
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
