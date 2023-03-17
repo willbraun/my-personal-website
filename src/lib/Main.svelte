@@ -1,5 +1,8 @@
-<main>
-	<section id="about">
+<script>
+</script>
+
+<main id="top">
+	<section>
 		<h1>Hello!</h1>
 	</section>
 	<section id="projects">
@@ -16,7 +19,8 @@
 <style>
 	main {
 		position: absolute;
-		top: var(--header-height);
+		top: 0;
+		padding-top: var(--header-height);
 		width: 100%;
 	}
 
