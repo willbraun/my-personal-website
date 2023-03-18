@@ -1,10 +1,19 @@
+<script lang="ts">
+	let scrollPoints: NodeListOf<HTMLElement>
+	let scrollToPoint: Function
+	window.onload = () => {
+		scrollPoints = document.querySelectorAll('.scroll-point')
+		scrollToPoint = index => scrollPoints[index].scrollIntoView(true)
+	}
+</script>
+
 <header>
 	<nav>
 		<ul>
-			<li><a href="#top">About</a></li>
-			<li><a href="#projects">Projects</a></li>
-			<li><a href="#blog">Blog</a></li>
-			<li><a href="#contact">Contact</a></li>
+			<li><button on:click={() => scrollToPoint(0)}> About </button></li>
+			<li><button on:click={() => scrollToPoint(1)}> Projects </button></li>
+			<li><button on:click={() => scrollToPoint(2)}> Blog </button></li>
+			<li><button on:click={() => scrollToPoint(3)}> Contact </button></li>
 		</ul>
 	</nav>
 </header>
@@ -30,8 +39,13 @@
 		font-size: 1.2rem;
 	}
 
-	a {
-		text-decoration: none;
-		color: #fff;
+	button {
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+	}
+
+	button:hover {
+		text-decoration: underline;
 	}
 </style>

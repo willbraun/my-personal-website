@@ -1,17 +1,17 @@
 <script>
 </script>
 
-<main id="top">
+<main class="scroll-point">
 	<section>
 		<h1>Hello!</h1>
 	</section>
-	<section id="projects">
+	<section class="scroll-point">
 		<h2>Projects</h2>
 	</section>
-	<section id="blog">
+	<section class="scroll-point">
 		<h2>Blog</h2>
 	</section>
-	<section id="contact">
+	<section class="scroll-point">
 		<h2>Contact</h2>
 	</section>
 </main>
