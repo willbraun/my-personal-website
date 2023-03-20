@@ -5,8 +5,8 @@
 
 	color-scheme: light dark;
 	color: rgba(255, 255, 255, 0.87);
-	background-color: #001c55;
 
+	--background-color: #001c55;
 	--header-height: 4rem;
 
 	font-synthesis: none;
@@ -21,6 +21,10 @@ html {
 }
 
 h1 {
-	font-size: 3.2em;
+	font-size: 5em;
 	line-height: 1.1;
+}
+
+h2 {
+	font-size: 4rem;
 }

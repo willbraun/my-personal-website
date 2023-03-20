@@ -24,6 +24,10 @@
 		height: var(--header-height);
 		width: 100%;
 		z-index: 10;
+		background-color: var(--background-color);
+		/* backdrop-filter: blur(10px); */
+		/* figure out blur background */
+		box-shadow: 0 0 3px 3px #111;
 	}
 
 	ul {
