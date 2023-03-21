@@ -17,9 +17,14 @@
 		<article class="project">
 			<h3>Gridlock</h3>
 			<p>
-				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, quod non adipisci delectus
-				voluptatum dolor pariatur voluptatem blanditiis cupiditate ullam in aliquid, eius unde, assumenda
-				placeat voluptatibus recusandae iste consectetur!
+				Gridlock is a 2-player strategy game that a friend showed me on a whiteboard, and I thought it would be
+				fun to create a digital version. The goal is to connect 4 numbers in a row, using a factor from your
+				opponent's previous turn. It is a serverless app I built with React and deployed to Github Pages, so it
+				can be played offline once loaded. I designed it for mobile, but it will work on any size screen.
+				<br /><br />
+				I am most proud of the "Computer - Hard" mode in Settings. It is an AI that I created to play against you,
+				and it is quite a challenge! I modeled the AI after chess engines, and it uses a minimax algorithm, alpha-beta
+				pruning, and an evaluation function. Good luck beating it!
 			</p>
 			<a href="https://willbraun.github.io/gridlock/" target="_blank">
 				<button>
@@ -31,6 +36,7 @@
 					<p>GitHub</p>
 				</button>
 			</a>
+			<img src="/src/assets/gridlock-image.png" alt="Gridlock" />
 		</article>
 		<article class="project">
 			<h3>OpenSeat</h3>
