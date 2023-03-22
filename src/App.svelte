@@ -4,6 +4,7 @@
 </script>
 
 <div>
-	<Header />
+	<!-- <Header /> -->
+	<!-- replace with icons on the right side where you can click to navigate to each section -->
 	<Main />
 </div>
