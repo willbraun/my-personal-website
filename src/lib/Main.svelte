@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { Col, Container, Row } from 'sveltestrap'
+
 	const copyEmail = () => {
 		navigator.clipboard.writeText('williamhbraun1@gmail.com')
 		document.querySelector('.copied').classList.add('show-check')
@@ -6,14 +8,25 @@
 </script>
 
 <main class="scroll-point">
-	<section class="about">
-		<div class="about-text">
-			<h1>Hi, I'm Will.</h1>
-			<p>I'm a software engineer living in Greenville, SC.</p>
-		</div>
-		<div class="img-box">
-			<img class="headshot" src="/src/assets/will-braun-headshot-min.jpg" alt="Will Braun headshot" />
-		</div>
+	<section class="top">
+		<Row class="top-row align-items-center">
+			<Col class="top-text" xs="12" md="7">
+				<h1>Hi, I'm Will.</h1>
+			</Col>
+			<Col class="img-box" xs="12" md="5">
+				<img class="headshot" src="/src/assets/will-braun-headshot-min.jpg" alt="Will Braun headshot" />
+			</Col>
+		</Row>
+	</section>
+	<section class="scroll-point about">
+		<h2>About</h2>
+		<p>
+			I'm passionate about making ideas come to life on the web. While working as a consultant at a software
+			company, I learned firsthand the power of code and how it could be used to improve lives of millions. I
+			dabbled with JavaScript in my spare time and I was hooked, leading me on a life-changing journey to becoming
+			a software engineer. Now, I am a software engineer at SIOS Technology Corp., where I work on high
+			availability and disaster recovery solutions for cloud systems.
+		</p>
 	</section>
 	<section class="scroll-point projects">
 		<h2>Projects</h2>
@@ -120,27 +133,25 @@
 
 	section {
 		width: 70%;
-		margin: 0 auto;
-		padding-top: calc(var(--header-height) + 1rem);
-	}
-
-	.about {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-
-	.about-text {
-		width: 50%;
+		margin: 0 auto 3rem;
 	}
 
 	section p {
 		font-size: 1.5rem;
 	}
 
+	.top {
+		height: 100vh;
+		display: flex;
+		align-items: center;
+	}
+
+	h1 {
+		font-size: 5rem;
+	}
+
 	.img-box {
 		aspect-ratio: 1 / 1;
-		width: 40%;
 	}
 
 	.headshot {
