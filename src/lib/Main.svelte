@@ -248,7 +248,7 @@
 		background-color: transparent;
 		border: 1px solid var(--accent-color);
 		border-radius: 0.5rem;
-		padding: 0.5rem;
+		padding: 0.75rem;
 		margin-top: 0.5rem;
 	}
 
@@ -260,7 +260,7 @@
 
 	.copied {
 		position: absolute;
-		top: 0.9rem;
+		top: 1.2rem;
 		right: -3rem;
 		transition: 0.1s;
 	}
