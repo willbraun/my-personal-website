@@ -1,4 +1,8 @@
-<script>
+<script lang="ts">
+	const copyEmail = () => {
+		navigator.clipboard.writeText('williamhbraun1@gmail.com')
+		document.querySelector('.copied').classList.add('show-check')
+	}
 </script>
 
 <main class="scroll-point">
@@ -11,7 +15,7 @@
 			<img class="headshot" src="/src/assets/will-braun-headshot-min.jpg" alt="Will Braun headshot" />
 		</div>
 	</section>
-	<section class="scroll-point">
+	<section class="scroll-point projects">
 		<h2>Projects</h2>
 		<article class="project">
 			<h3>Gridlock</h3>
@@ -31,7 +35,7 @@
 						minimax algorithm, alpha-beta pruning, and an evaluation function. Good luck beating it!
 					</p>
 					<a href="https://github.com/willbraun/gridlock" target="_blank">
-						<button>
+						<button type="button">
 							<p>GitHub</p>
 						</button>
 					</a>
@@ -64,47 +68,43 @@
 				/>
 			</div>
 			<a href="https://github.com/willbraun/openseat-app" target="_blank">
-				<button>
+				<button type="button">
 					<p>GitHub</p>
 				</button>
 			</a>
 		</article>
 	</section>
-	<section class="scroll-point">
+	<section class="scroll-point blog">
 		<h2>Blog</h2>
 		<p>
 			I love software development because there is always more to learn, and I can share what I've learned to help
 			others. I write articles about tech I am working with, personal projects, problems I have solved, and life
 			as a developer. Check it out!
 		</p>
-		<a class="blog-link" href="https://blog.willbraun.dev" target="_blank">
-			<button class="blog-button">
+		<a href="https://blog.willbraun.dev" target="_blank">
+			<button class="external-button" type="button">
 				<p>Visit My Blog</p>
 			</button>
 		</a>
 	</section>
-	<section class="scroll-point">
+	<section class="scroll-point contact">
 		<h2>Contact</h2>
-		<div class="contact-text">
+		<div class="contact-info">
 			<p>Want to chat? Feel free to reach out!</p>
-			<p>williamhbraun1@gmail.com</p>
-		</div>
-		<div class="icons">
-			<a href="mailto:williamhbraun1@gmail.com">
-				<button class="social-icon">
-					<img src="/src/assets/envelope.svg" alt="email envolepe icon" />
+			<a href="mailto:williamhbraun1@gmail.com" target="_blank" rel="noopener noreferrer">
+				<button class="external-button" type="button">
+					<p>Say Hello</p>
 				</button>
 			</a>
-			<a href="https://www.linkedin.com/in/williamhbraun/" target="_blank">
-				<button class="social-icon">
-					<img src="/src/assets/linkedin-in.svg" alt="email envolepe icon" />
+			<div class="copy-email">
+				<button class="copy-button" type="button" on:click={copyEmail}>
+					<p>williamhbraun1@gmail.com</p>
+					<img src="/src/assets/copy-icon.svg" alt="copy email" />
 				</button>
-			</a>
-			<a href="https://github.com/willbraun" target="_blank">
-				<button class="social-icon">
-					<img src="/src/assets/github.svg" alt="email envolepe icon" />
-				</button>
-			</a>
+				<div class="copied">
+					<img src="/src/assets/check-solid.svg" alt="copied check mark" />
+				</div>
+			</div>
 		</div>
 	</section>
 </main>
@@ -177,7 +177,7 @@
 	}
 
 	.gridlock-play:hover img {
-		filter: blur(2px) brightness(50%);
+		filter: blur(3px) brightness(50%);
 	}
 
 	.overlay {
@@ -209,46 +209,72 @@
 		margin: 2rem 0;
 	}
 
-	.blog-link {
-		text-decoration: none;
-	}
-
-	.blog-button {
+	.external-button {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		margin: 2rem auto 0;
 		padding: 0.75rem;
 		background-color: var(--accent-color);
 		border: none;
-		border-radius: 0.2rem;
+		border-radius: 0.5rem;
 	}
 
-	.blog-button p {
+	.external-button p {
 		color: #000;
 		font-weight: 600;
 	}
 
-	.contact-text {
-		margin: auto;
+	.blog .external-button {
+		margin: 2rem auto 0;
 	}
 
-	.icons {
-		width: 50%;
-		margin: 2rem auto;
+	.contact-info {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		height: 12rem;
+	}
+
+	.copy-email {
+		position: relative;
+	}
+
+	.copy-button {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
+		color: var(--accent-color);
+		background-color: transparent;
+		border: 1px solid var(--accent-color);
+		border-radius: 0.5rem;
+		padding: 0.5rem;
+		margin-top: 0.5rem;
 	}
 
-	.social-icon {
-		width: 4rem;
-		height: 4rem;
-		background-color: var(--accent-color);
-		border-radius: 0.2rem;
-		border: none;
+	.copy-button img {
+		width: 2rem;
+		margin-left: 1rem;
+		filter: var(--svg-filter-white);
 	}
 
-	.social-icon img {
-		width: 100%;
+	.copied {
+		position: absolute;
+		top: 0.9rem;
+		right: -3rem;
+		transition: 0.1s;
+	}
+
+	.copied img {
+		width: 2rem;
+		filter: var(--svg-filter-white);
+	}
+
+	.copied:not(.show-check) {
+		opacity: 0;
+	}
+
+	.copied.show-check {
+		opacity: 1;
 	}
 </style>
