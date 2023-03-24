@@ -30,10 +30,9 @@
 	</a>
 	<div style="position: relative; padding-bottom: 62.5%; height: 0;">
 		<iframe
+			title="OpenSeat video demo"
 			src="https://www.loom.com/embed/ec1cf09e45434ab29c6b323d3856634a"
 			frameborder="0"
-			webkitallowfullscreen
-			mozallowfullscreen
 			allowfullscreen
 			style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
 		/>

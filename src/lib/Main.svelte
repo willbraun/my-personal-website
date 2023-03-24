@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { Col, Container, Row } from 'sveltestrap'
-
 	const copyEmail = () => {
 		navigator.clipboard.writeText('williamhbraun1@gmail.com')
 		document.querySelector('.copied').classList.add('show-check')
@@ -9,14 +7,18 @@
 
 <main class="scroll-point">
 	<section class="top">
-		<Row class="top-row align-items-center">
-			<Col class="top-text" xs="12" md="7">
-				<h1>Hi, I'm Will.</h1>
-			</Col>
-			<Col class="img-box" xs="12" md="5">
+		<div class="row align-items-center m-0">
+			<div class="col-xs-12 col-md-7 pb-3">
+				<h1>Hi, I'm Will</h1>
+				<p>Software engineer, problem-solver, creator</p>
+			</div>
+			<div class="col-xs-12 col-md-5 img-box">
 				<img class="headshot" src="/src/assets/will-braun-headshot-min.jpg" alt="Will Braun headshot" />
-			</Col>
-		</Row>
+			</div>
+		</div>
+		<div class="down-arrow">
+			<img class="col-xs-12 down-arrow " src="/src/assets/angles-down-solid.svg" alt="down arrow" />
+		</div>
 	</section>
 	<section class="scroll-point about">
 		<h2>About</h2>
@@ -32,8 +34,8 @@
 		<h2>Projects</h2>
 		<article class="project">
 			<h3>Gridlock</h3>
-			<div class="gridlock-grid">
-				<div class="gridlock-info">
+			<div class="row gridlock-grid">
+				<div class="col-xs-12 col-md-8 gridlock-info">
 					<p>
 						Gridlock is a 2-player strategy game that a friend showed me on a whiteboard, and I thought it
 						would be fun to create a digital version. The goal is to connect 4 numbers in a row, using a
@@ -45,15 +47,23 @@
 					<p>
 						I am most proud of the "Computer - Hard" mode in Settings. It is an AI that I created to play
 						against you, and it is quite a challenge! I modeled the AI after chess engines, and it uses a
-						minimax algorithm, alpha-beta pruning, and an evaluation function. Good luck beating it!
+						minimax algorithm, alpha-beta pruning, and an evaluation function. See if you can beat it!
 					</p>
-					<a href="https://github.com/willbraun/gridlock" target="_blank">
-						<button type="button">
-							<p>GitHub</p>
-						</button>
-					</a>
+					<div class="project-buttons">
+						<a href="https://willbraun.github.io/gridlock/" target="_blank" rel="noopener noreferrer">
+							<button class="button-primary " type="button">
+								<p>Play Gridlock</p>
+							</button>
+						</a>
+						<a href="https://github.com/willbraun/gridlock" target="_blank" rel="noopener noreferrer">
+							<button class="button-primary github-button" type="button">
+								<p>GitHub</p>
+								<img src="/src/assets/github.svg" alt="github icon" />
+							</button>
+						</a>
+					</div>
 				</div>
-				<div class="gridlock-play">
+				<div class="col-xs-12 col-md-4 gridlock-play">
 					<a class="gridlock-link" href="https://willbraun.github.io/gridlock/" target="_blank">
 						<img class="gridlock-img" src="/src/assets/gridlock-image.png" alt="Gridlock" />
 						<div class="overlay">Click to play</div>
@@ -71,6 +81,14 @@
 				Twilio APIs, and deployed to Heroku. This was my final project at Carolina Code School, and I've
 				included a video demo of the app.
 			</p>
+			<div class="project-buttons">
+				<a href="https://github.com/willbraun/openseat-app" target="_blank" rel="noopener noreferrer">
+					<button class="button-primary github-button" type="button">
+						<p>GitHub</p>
+						<img src="/src/assets/github.svg" alt="github icon" />
+					</button>
+				</a>
+			</div>
 			<div class="openseat-demo" style="position: relative; padding-bottom: 62.5%; height: 0;">
 				<iframe
 					title="Open Seat Loom video demo"
@@ -80,11 +98,6 @@
 					style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
 				/>
 			</div>
-			<a href="https://github.com/willbraun/openseat-app" target="_blank">
-				<button type="button">
-					<p>GitHub</p>
-				</button>
-			</a>
 		</article>
 	</section>
 	<section class="scroll-point blog">
@@ -94,8 +107,8 @@
 			others. I write articles about tech I am working with, personal projects, problems I have solved, and life
 			as a developer. Check it out!
 		</p>
-		<a href="https://blog.willbraun.dev" target="_blank">
-			<button class="external-button" type="button">
+		<a href="https://blog.willbraun.dev" target="_blank" rel="noopener noreferrer">
+			<button class="button-primary" type="button">
 				<p>Visit My Blog</p>
 			</button>
 		</a>
@@ -105,12 +118,12 @@
 		<div class="contact-info">
 			<p>Want to chat? Feel free to reach out!</p>
 			<a href="mailto:williamhbraun1@gmail.com" target="_blank" rel="noopener noreferrer">
-				<button class="external-button" type="button">
+				<button class="button-primary" type="button">
 					<p>Say Hello</p>
 				</button>
 			</a>
 			<div class="copy-email">
-				<button class="copy-button" type="button" on:click={copyEmail}>
+				<button class="copy-button button-secondary" type="button" on:click={copyEmail}>
 					<p>williamhbraun1@gmail.com</p>
 					<img src="/src/assets/copy-icon.svg" alt="copy email" />
 				</button>
@@ -132,8 +145,9 @@
 	}
 
 	section {
-		width: 70%;
-		margin: 0 auto 3rem;
+		max-width: 1000px;
+		margin: 0 auto;
+		padding: 1rem;
 	}
 
 	section p {
@@ -141,9 +155,15 @@
 	}
 
 	.top {
+		position: relative;
 		height: 100vh;
-		display: flex;
-		align-items: center;
+	}
+
+	.top .row {
+		position: absolute;
+		top: 40%;
+		transform: translateY(-40%);
+		max-height: 90%;
 	}
 
 	h1 {
@@ -159,26 +179,31 @@
 		border-radius: 50%;
 	}
 
-	.project {
-		margin: 2rem 2rem;
+	.down-arrow {
+		position: absolute;
+		bottom: 30px;
+		left: 50%;
+		transform: translateX(-50%);
 	}
 
-	.gridlock-grid {
-		display: flex;
+	.down-arrow img {
+		width: 2rem;
+		filter: var(--svg-filter-white);
+	}
+
+	.project {
+		margin: 1rem 1rem;
 	}
 
 	.gridlock-info {
-		width: 60%;
-		margin-right: 2rem;
-		flex-grow: 1;
+		margin: 1rem 0;
 	}
 
 	.gridlock-play {
 		position: relative;
-		min-width: 250px;
-		width: 40%;
-		max-width: 350px;
 		overflow: hidden;
+		max-width: 350px;
+		margin: 1rem auto;
 	}
 
 	.gridlock-img {
@@ -191,6 +216,13 @@
 		filter: blur(3px) brightness(50%);
 	}
 
+	.project-buttons {
+		display: flex;
+		justify-content: space-evenly;
+		width: 100%;
+		margin-top: 1rem;
+	}
+
 	.overlay {
 		width: 100%;
 		height: 99%;
@@ -200,7 +232,7 @@
 		opacity: 0;
 		vertical-align: center;
 		color: #fff;
-		font-size: 3cqw;
+		font-size: 2rem;
 		font-weight: 600;
 		border-radius: 0.75rem;
 		display: flex;
@@ -216,11 +248,16 @@
 		opacity: 1;
 	}
 
+	.github-button img {
+		width: 2rem;
+		margin-left: 0.5rem;
+	}
+
 	.openseat-demo {
 		margin: 2rem 0;
 	}
 
-	.external-button {
+	.button-primary {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -228,14 +265,27 @@
 		background-color: var(--accent-color);
 		border: none;
 		border-radius: 0.5rem;
+		height: 3rem;
 	}
 
-	.external-button p {
+	.button-primary p {
 		color: #000;
 		font-weight: 600;
 	}
 
-	.blog .external-button {
+	.button-secondary {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		color: var(--accent-color);
+		background-color: transparent;
+		border: 1px solid var(--accent-color);
+		border-radius: 0.5rem;
+		padding: 0.75rem;
+		height: 3rem;
+	}
+
+	.blog .button-primary {
 		margin: 2rem auto 0;
 	}
 
@@ -251,27 +301,16 @@
 		position: relative;
 	}
 
-	.copy-button {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		color: var(--accent-color);
-		background-color: transparent;
-		border: 1px solid var(--accent-color);
-		border-radius: 0.5rem;
-		padding: 0.75rem;
-		margin-top: 0.5rem;
-	}
-
 	.copy-button img {
-		width: 2rem;
+		width: 1.8rem;
 		margin-left: 1rem;
 		filter: var(--svg-filter-white);
 	}
 
 	.copied {
 		position: absolute;
-		top: 1.2rem;
+		top: 50%;
+		transform: translateY(-50%);
 		right: -3rem;
 		transition: 0.1s;
 	}
