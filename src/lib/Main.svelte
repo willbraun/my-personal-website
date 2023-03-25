@@ -7,13 +7,15 @@
 
 <main class="scroll-point">
 	<section class="top">
-		<div class="row align-items-center m-0">
-			<div class="col-xs-12 col-md-7 pb-3">
+		<div class="row align-items-center m-0 p-0">
+			<div class="col-xs-12 col-lg-7 pb-3 title">
 				<h1>Hi, I'm Will</h1>
 				<p>Software engineer, problem-solver, creator</p>
 			</div>
-			<div class="col-xs-12 col-md-5 img-box">
-				<img class="headshot" src="/src/assets/will-braun-headshot-min.jpg" alt="Will Braun headshot" />
+			<div class="col-xs-12 col-lg-5">
+				<div class="img-box">
+					<img class="headshot" src="/src/assets/will-braun-headshot-min.jpg" alt="Will Braun headshot" />
+				</div>
 			</div>
 		</div>
 		<div class="down-arrow">
@@ -74,7 +76,7 @@
 		<article class="project">
 			<h3>OpenSeat</h3>
 			<p>
-				When I moved to Greenville, I was working remotely and it was tough to meet new people, so I was
+				When I moved to Greenville, SC, I was working remotely and it was tough to meet new people. I was
 				inspired to create a solution to connect people based on their unique interests. With OpenSeat, you can
 				create events to do any activity you'd like with a small group. You can also search for and sign up for
 				events that others have posted. It is a full stack app that I build using React, Django, Google and
@@ -141,17 +143,25 @@
 		top: 0;
 		width: 100%;
 		background-color: var(--background-color);
-		padding-bottom: 4rem;
+		padding: 0 2rem 4rem;
 	}
 
 	section {
+		width: 100%;
 		max-width: 1000px;
-		margin: 0 auto;
-		padding: 1rem;
+		margin: 0 auto 2rem;
 	}
 
 	section p {
 		font-size: 1.5rem;
+	}
+
+	.title {
+		text-align: center;
+	}
+
+	h1 {
+		font-size: clamp(3rem, 15vw, 5rem);
 	}
 
 	.top {
@@ -159,29 +169,36 @@
 		height: 100vh;
 	}
 
-	.top .row {
+	.top > .row {
 		position: absolute;
 		top: 40%;
 		transform: translateY(-40%);
-		max-height: 90%;
+		width: 100%;
 	}
 
-	h1 {
-		font-size: 5rem;
+	.top > .row > div {
+		position: relative;
+	}
+
+	.top > .row p {
+		font-size: clamp();
 	}
 
 	.img-box {
+		position: relative;
 		aspect-ratio: 1 / 1;
+		max-height: 50vh;
+		margin: auto;
 	}
 
 	.headshot {
-		width: 100%;
+		height: 100%;
 		border-radius: 50%;
 	}
 
 	.down-arrow {
 		position: absolute;
-		bottom: 30px;
+		bottom: 15px;
 		left: 50%;
 		transform: translateX(-50%);
 	}
@@ -202,8 +219,8 @@
 	.gridlock-play {
 		position: relative;
 		overflow: hidden;
-		max-width: 350px;
 		margin: 1rem auto;
+		max-width: 350px;
 	}
 
 	.gridlock-img {
@@ -220,7 +237,7 @@
 		display: flex;
 		justify-content: space-evenly;
 		width: 100%;
-		margin-top: 1rem;
+		margin-top: 2rem;
 	}
 
 	.overlay {
@@ -261,15 +278,12 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 0.75rem;
 		background-color: var(--accent-color);
-		border: none;
-		border-radius: 0.5rem;
-		height: 3rem;
 	}
 
 	.button-primary p {
 		color: #000;
+		font-size: 1.4rem;
 		font-weight: 600;
 	}
 
@@ -279,9 +293,13 @@
 		align-items: center;
 		color: var(--accent-color);
 		background-color: transparent;
+	}
+
+	.button-primary,
+	.button-secondary {
+		padding: 0.5rem 0.6rem;
 		border: 1px solid var(--accent-color);
 		border-radius: 0.5rem;
-		padding: 0.75rem;
 		height: 3rem;
 	}
 
@@ -290,15 +308,23 @@
 	}
 
 	.contact-info {
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
-		height: 12rem;
+	}
+
+	.contact-info > * {
+		margin-bottom: 1rem;
 	}
 
 	.copy-email {
 		position: relative;
+	}
+
+	.copy-button {
+		width: 100%;
 	}
 
 	.copy-button img {
@@ -326,5 +352,47 @@
 
 	.copied.show-check {
 		opacity: 1;
+	}
+
+	@media (max-width: 768px) {
+		section p {
+			font-size: 1.3rem;
+		}
+
+		.button-primary p,
+		.button-secondary p {
+			font-size: 1.2rem;
+		}
+
+		/* .button-primary {
+			padding: 0.2rem;
+		} */
+
+		.overlay {
+			display: none;
+		}
+
+		.gridlock-play:hover .overlay {
+			opacity: 0;
+		}
+
+		.gridlock-play:hover img {
+			filter: none;
+		}
+
+		.gridlock-link {
+			pointer-events: none;
+		}
+	}
+
+	@media (max-width: 992px) {
+		.top > .row {
+			top: 0;
+			transform: translateY(0);
+		}
+
+		.title {
+			margin: 5vh 0 2rem;
+		}
 	}
 </style>
