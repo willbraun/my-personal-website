@@ -6,9 +6,12 @@
 	color-scheme: light dark;
 	color: var(--accent-color);
 
-	--background-color: #001c55;
+	--header-height: 3rem;
+	--min-page-margin: 2rem;
+	/* --content-width: calc(992px - (2 * var(--min-page-margin))); */
+	--background-color: rgba(0, 28, 85, 1);
+	--background-color-translucent: rgba(0, 28, 85, 0.5);
 	--accent-color: rgba(255, 255, 255, 0.87);
-	--header-height: 4rem;
 	--svg-filter-white: invert(100%) sepia(0%) saturate(2%) hue-rotate(241deg) brightness(105%) contrast(101%);
 
 	font-synthesis: none;

@@ -143,12 +143,12 @@
 		top: 0;
 		width: 100%;
 		background-color: var(--background-color);
-		padding: 0 2rem 4rem;
+		padding: 0 var(--min-page-margin) 4rem;
 	}
 
 	section {
 		width: 100%;
-		max-width: 1000px;
+		max-width: 992px;
 		margin: 0 auto 2rem;
 	}
 
@@ -363,10 +363,6 @@
 		.button-secondary p {
 			font-size: 1.2rem;
 		}
-
-		/* .button-primary {
-			padding: 0.2rem;
-		} */
 
 		.overlay {
 			display: none;

@@ -1,6 +1,12 @@
 <script lang="ts">
+	import { Offcanvas } from 'sveltestrap'
+
 	let scrollPoints: NodeListOf<HTMLElement>
 	let scrollToPoint: Function
+	let labels: string[] = ['Home', 'About', 'Projects', 'Blog', 'Contact']
+	let open: boolean = false
+	const toggle = () => (open = !open)
+
 	window.onload = () => {
 		scrollPoints = document.querySelectorAll('.scroll-point')
 		scrollToPoint = index => scrollPoints[index].scrollIntoView(true)
@@ -8,33 +14,45 @@
 </script>
 
 <header>
-	<nav>
+	<nav class="desktop-nav">
 		<ul>
-			<li><button on:click={() => scrollToPoint(0)}> About </button></li>
-			<li><button on:click={() => scrollToPoint(1)}> Projects </button></li>
-			<li><button on:click={() => scrollToPoint(2)}> Blog </button></li>
-			<li><button on:click={() => scrollToPoint(3)}> Contact </button></li>
+			{#each labels as label, index}
+				<li>
+					<button on:click={() => scrollToPoint(index)}>{label}</button>
+				</li>
+			{/each}
 		</ul>
 	</nav>
+	<button class="mobile-menu-button" type="button" on:click={toggle}>
+		<img src="/src/assets/bars-solid.svg" alt="menu icon" />
+	</button>
 </header>
 
 <style>
 	header {
 		position: fixed;
+		top: 0;
 		height: var(--header-height);
 		width: 100%;
 		z-index: 10;
-		background-color: var(--background-color);
-		/* backdrop-filter: blur(10px); */
-		/* figure out blur background */
-		box-shadow: 0 0 3px 3px #111;
+	}
+
+	.desktop-nav {
+		background-color: var(--background-color-translucent);
+		backdrop-filter: blur(10px);
+		height: 100%;
 	}
 
 	ul {
+		position: absolute;
+		top: 50%;
+		right: 0;
+		transform: translateY(-50%);
 		display: flex;
 		flex-direction: row;
 		justify-content: right;
-		padding: 0 4rem;
+		margin: 0 0 0 auto;
+		padding: 0 var(--min-page-margin);
 	}
 
 	li {
@@ -43,12 +61,39 @@
 		font-size: 1.2rem;
 	}
 
-	button {
+	.desktop-nav button {
 		background-color: transparent;
 		border: none;
 	}
 
-	button:hover {
+	.desktop-nav button:hover {
 		text-decoration: underline;
+	}
+
+	.mobile-menu-button {
+		position: fixed;
+		display: none;
+		top: 1rem;
+		right: calc(var(--min-page-margin) * 0.25);
+		width: calc(var(--min-page-margin) * 0.75);
+		background-color: transparent;
+		border: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.mobile-menu-button img {
+		width: 100%;
+		filter: var(--svg-filter-white);
+	}
+
+	@media (max-width: 992px) {
+		.desktop-nav {
+			display: none;
+		}
+
+		.mobile-menu-button {
+			display: block;
+		}
 	}
 </style>
