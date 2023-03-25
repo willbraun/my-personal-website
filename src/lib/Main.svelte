@@ -1,4 +1,6 @@
 <script lang="ts">
+	const scrollTo = (selector: string) => document.querySelector(selector).scrollIntoView(true)
+
 	const copyEmail = () => {
 		navigator.clipboard.writeText('williamhbraun1@gmail.com')
 		document.querySelector('.copied').classList.add('show-check')
@@ -18,9 +20,9 @@
 				</div>
 			</div>
 		</div>
-		<div class="down-arrow">
-			<img class="col-xs-12 down-arrow " src="/src/assets/angles-down-solid.svg" alt="down arrow" />
-		</div>
+		<button type="button" class="down-arrow" on:click={() => scrollTo('.about')}>
+			<img class="col-xs-12" src="/src/assets/angles-down-solid.svg" alt="down arrow scroll to about" />
+		</button>
 	</section>
 	<section class="scroll-point about">
 		<h2>About</h2>
@@ -135,21 +137,25 @@
 			</div>
 		</div>
 	</section>
+	<button type="button" class="down-arrow up-arrow" on:click={() => scrollTo('.top')}>
+		<img class="col-xs-12" src="/src/assets/angles-down-solid.svg" alt="up arrow scroll to top" />
+	</button>
 </main>
 
 <style>
 	main {
-		position: absolute;
+		position: relative;
 		top: 0;
 		width: 100%;
 		background-color: var(--background-color);
-		padding: 0 var(--min-page-margin) 4rem;
+		padding: 0 var(--min-page-margin) 6rem;
 	}
 
 	section {
 		width: 100%;
 		max-width: 992px;
 		margin: 0 auto 2rem;
+		scroll-margin: var(--header-height);
 	}
 
 	section p {
@@ -196,6 +202,13 @@
 		border-radius: 50%;
 	}
 
+	.down-arrow,
+	.up-arrow {
+		width: 3rem;
+		border: none;
+		background-color: transparent;
+	}
+
 	.down-arrow {
 		position: absolute;
 		bottom: 15px;
@@ -203,8 +216,16 @@
 		transform: translateX(-50%);
 	}
 
-	.down-arrow img {
-		width: 2rem;
+	.up-arrow {
+		position: absolute;
+		bottom: 45px;
+		left: 50%;
+		transform: translateX(-50%) rotate(180deg);
+	}
+
+	.down-arrow img,
+	.up-arrow img {
+		width: 100%;
 		filter: var(--svg-filter-white);
 	}
 
