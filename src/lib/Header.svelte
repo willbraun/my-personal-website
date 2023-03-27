@@ -24,8 +24,24 @@
 		</ul>
 	</nav>
 	<button class="mobile-menu-button" type="button" on:click={toggle}>
-		<img src="/src/assets/bars-solid.svg" alt="menu icon" />
+		<img src="/src/assets/images/bars-solid.svg" alt="menu icon" />
 	</button>
+	<Offcanvas class="mobile-menu" isOpen={open} {toggle} placement="end">
+		<nav class="mobile-nav">
+			<ul>
+				{#each labels as label, index}
+					<li>
+						<button
+							on:click={() => {
+								scrollToPoint(index)
+								toggle()
+							}}>{label}</button
+						>
+					</li>
+				{/each}
+			</ul>
+		</nav>
+	</Offcanvas>
 </header>
 
 <style>
@@ -43,7 +59,7 @@
 		height: 100%;
 	}
 
-	ul {
+	.desktop-nav ul {
 		position: absolute;
 		top: 50%;
 		right: 0;
@@ -57,11 +73,15 @@
 
 	li {
 		list-style-type: none;
+	}
+
+	.desktop-nav li {
 		margin: 0 0 0 1rem;
 		font-size: 1.2rem;
 	}
 
-	.desktop-nav button {
+	.desktop-nav button,
+	.mobile-nav button {
 		background-color: transparent;
 		border: none;
 	}
@@ -85,6 +105,10 @@
 	.mobile-menu-button img {
 		width: 100%;
 		filter: var(--svg-filter-white);
+	}
+
+	.mobile-nav li {
+		font-size: 4rem;
 	}
 
 	@media (max-width: 992px) {

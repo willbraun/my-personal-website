@@ -6,10 +6,10 @@
 	<div class="footer-info">
 		<p>Will Braun {year}</p>
 		<a class="logo" href="https://www.linkedin.com/in/williamhbraun/" target="_blank" rel="noopener noreferrer">
-			<img src="/src/assets/linkedin.svg" alt="GitHub icon" />
+			<img src="/src/assets/images/linkedin.svg" alt="GitHub icon" />
 		</a>
 		<a class="logo" href="https://github.com/willbraun" target="_blank" rel="noopener noreferrer">
-			<img src="/src/assets/github.svg" alt="GitHub icon" />
+			<img src="/src/assets/images/github.svg" alt="GitHub icon" />
 		</a>
 	</div>
 </footer>
@@ -30,7 +30,9 @@
 	}
 
 	.footer-info p {
+		font-family: 'Bakbak One';
 		font-size: 1.8rem;
+		color: var(--accent-color);
 	}
 
 	.footer-info > *:not(:last-child) {

@@ -54,3 +54,20 @@ button {
 a {
 	text-decoration: none;
 }
+
+.mobile-menu .btn-close {
+	opacity: 1;
+	filter: brightness(0) invert(1);
+	padding: 1rem;
+}
+
+.mobile-menu .btn-close:focus {
+	box-shadow: none;
+}
+
+@font-face {
+	font-family: 'Bakbak One';
+	font-style: normal;
+	font-weight: 400;
+	src: url('/src/assets/fonts/BakbakOne-Regular.ttf');
+}
